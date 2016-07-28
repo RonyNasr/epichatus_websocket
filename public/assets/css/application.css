@@ -26,19 +26,19 @@ Author: Liam Ellis, Aestheke Inc.
 
 @font-face {
   font-family: earth;
-  src: url(../earth.ttf);
+  src: url(../fonts/earth.ttf);
 }
 @font-face {
   font-family: future;
-  src: url(../future.ttf);
+  src: url(../fonts/future.ttf);
 }
 @font-face {
   font-family: bira;
-  src: url(../bira.ttf);
+  src: url(../fonts/bira.ttf);
 }
 @font-face {
   font-family: better;
-  src: url(../better.ttf);
+  src: url(../fonts/better.ttf);
 }
 body {
   margin: auto;
@@ -51,7 +51,7 @@ body {
   top: 0;
   left: 0;
   z-index: -5;
-  background: url(../background.jpeg) no-repeat center center fixed;
+  background: url(../images/background.jpeg) no-repeat center center fixed;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;

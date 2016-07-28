@@ -12,6 +12,7 @@ gem("rake")
 gem("pg")
 gem('json')
 gem('javascript')
+gem('rack-flash3')
 
 gem "faye-websocket"
 gem "puma"

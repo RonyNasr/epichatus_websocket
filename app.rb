@@ -1,10 +1,11 @@
 require("bundler/setup")
 require 'rack-flash'
+
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 require 'sinatra/base'
-require 'Epichat'
-include Epichat
+require './middlewares/chat_backend'
+
 include BCrypt
 use Rack::Session::Cookie, :key => 'rack.session',
                            :path => '/',
@@ -12,17 +13,17 @@ use Rack::Session::Cookie, :key => 'rack.session',
                            :secret => 'secrets_are_no_fun'
 use Rack::Flash
 
-  get "/assets/js/application.js" do # im sure there will be issues here -- >
-    content_type :js
-    @scheme = ENV['RACK_ENV'] == "production" ? "wss://" : "ws://"
-    erb :"application.js"
-  end
+get "/assets/js/application.js" do # im sure there will be issues here -- >
+  content_type :js
+  @scheme = ENV['RACK_ENV'] == "production" ? "wss://" : "ws://"
+  erb :"application.js"
+end
 
 # actual routes begin here for Epichat -->
 
 get('/') do
   # @users = User.all()
-  erb(:index)
+  erb :index
 end
 
 get '/user' do
