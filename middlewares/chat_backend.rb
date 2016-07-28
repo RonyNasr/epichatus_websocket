@@ -4,7 +4,7 @@ require 'redis'
 require 'json'
 require 'erb'
 
-module ChatDemo
+module Epichat
   class ChatBackend
     KEEPALIVE_TIME = 15 # in seconds
     CHANNEL        = "chat-demo"

@@ -1,6 +1,6 @@
 require './app'
 require './middlewares/chat_backend'
 
-use ChatDemo::ChatBackend
+use Epichat::ChatBackend
 
-run ChatDemo::App
+run Epichat::App
