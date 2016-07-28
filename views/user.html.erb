@@ -1,0 +1,65 @@
+<header>
+  <nav id="user_nav">
+    <li id="dashboard">Dashboard...</li>
+    <li id="user_home">
+      <form class="" action="/logout/?" method="post">
+        <button id="signout" type="submit" name="button">SIGN OUT<span class="glyphicon glyphicon-home"></button>
+      </form>
+    </li>
+  </nav>
+</header>
+
+<div class="index_background">
+  <div class="layer">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="dashboard">
+      <h2><span class="profile"><img src="assets/images/profile.png" alt="" /></span><%=@user.username %><span id="chats_arrow_up" class="chats_icon glyphicon glyphicon-chevron-up"></span><span id="chats_arrow_down" class="chats_icon glyphicon glyphicon-chevron-down"></span></h2>
+      <div class="chat_div">
+        <% if @users.any? %>
+          <ul class="chats">
+            <% @users.each do |user| %>
+              <%if user != @user %>
+                <li class="chat"> <img class="online_bubble" src="assets/images/chat.png" alt="" />
+                    <%=user.username()%>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8 col-sm-offset-1">
+    <div id="chat-text"><!-- heroku chat output div -->
+      <div class="chat-wrapper">
+        <section class="module">
+          <header class="top-bar">
+            <div class="left">
+              <span class="icon typicons-message"></span>
+              <h1>RUBY EpiChat</h1>
+            </div>
+            <div class="right">
+              <a class="minus" href="#"><span class="icon typicons-minus"></span></a>
+              <a class="plus" href="#"><span class="icon typicons-plus"></span></a>
+            </div>
+          </header>
+          <div class="discussion_with_input">
+            <div>
+              <ol id="chat-text" class="discussion"></ol>
+            </div>
+            <div class="message-input">
+              <form>
+                <input type="hidden" id="input-handle" value="<%= @user.username() %>">
+                <textarea id="input-text" type="text" class="text_input form-control" placeholder="Enter chat text here!" autofocus rows="2" cols="32"/></textarea><!--heroku version -->
+                <button type="submit" id="" name="send" class="send">SEND</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
