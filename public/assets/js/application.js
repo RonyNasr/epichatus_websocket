@@ -5,7 +5,7 @@ var ws = new WebSocket(uri);
 
 ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
-  $("#chat-text").append("<li class='Other'><div class='avatar'><img src='/assets/images/profile.png' alt='profile avatar'/></div><div class='messages'><p>" + data.handle + ":" + data.text + "</p></div></li>");
+  $("#chat-text").append("<li class='other'><div class='avatar'><img src='/assets/images/profile.png' alt='profile avatar'/></div><div class='messages'><p>" + data.handle + ":" + data.text + "</p></div></li>");
   $("#chat-text").stop().animate({
     scrollTop: $('#chat-text')[0].scrollHeight
   }, 800);
